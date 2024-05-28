@@ -2,7 +2,7 @@
 
 import UIKit
 
-final class ArticlesViewController: UIViewController, UITableViewDataSource {
+final class ArticlesViewController: UIViewController {
   // - Additionally, if we are expecting this class to grow larger, we may (or may not) want to use an extension for UITAbleViewDataSource
     private var articles: [Article] = []
     private var tableView: UITableView = UITableView()
@@ -44,6 +44,9 @@ final class ArticlesViewController: UIViewController, UITableViewDataSource {
             }
         }
     }
+}
+
+extension ArticlesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
         //This Articles class at the moment is generally small enoguh, so this defintely works. Being new to the codebase, the first question that comes to my mind is... is there a general architectural pattern that we try to follow in this app. Are we using MVVM for example or another pattern. If so, we likely want to create a ArticlesDataViewModel and let's have that handle our [Articles], our fetch for the Data etc. This is a greater discussion so, we should probably get together as a team assuming this arch pattern hasn't already been flushed out in the app elsewhere.
