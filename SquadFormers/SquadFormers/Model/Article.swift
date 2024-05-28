@@ -1,3 +1,3 @@
-struct Article {
+struct Article: Codable {
     let title: String
 }
