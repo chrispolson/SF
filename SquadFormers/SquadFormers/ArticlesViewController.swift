@@ -53,9 +53,11 @@ extension ArticlesViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell {
-           cell.textLabel.text = articles[indexPath.row].title
+        let cellReuseIdentifier = "ArticleCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? ArticleCell else {
+            return UITableViewCell()
         }
+        cell.textLabel.text = articles[indexPath.row].title
         
         //1. We might want to use a guard statement here to dequeue the cell. Good job with the resusable cell. We might do something like the following, what do you thinkg?
         // guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell else {
