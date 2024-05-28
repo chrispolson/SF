@@ -2,8 +2,7 @@
 
 import UIKit
 
-class ArticlesViewController: UIViewController, UITableViewDataSource {
-  // - If we aren't intending to subclass ArticlesViewController for anything in the future, we might consider using final class here, final can speed up the build time considerably in Swift
+final class ArticlesViewController: UIViewController, UITableViewDataSource {
   // - Additionally, if we are expecting this class to grow larger, we may (or may not) want to use an extension for UITAbleViewDataSource
     private var articles: [Article] = []
     private var tableView: UITableView = UITableView()
