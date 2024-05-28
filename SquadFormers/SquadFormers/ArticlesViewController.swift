@@ -17,7 +17,7 @@ final class ArticlesViewController: UIViewController {
         fetchData()
     }
     
-    func fetchData() {
+    private func fetchData() {
       //this can likely be private, if we aren't calling fetchData from outside this class.
       
       //While this absolutely works and is fine at present, as self.articles strongly references back to us.. but because we don't strongly references this closure right now... it's generally fine.
